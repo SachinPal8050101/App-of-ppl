@@ -1,24 +1,48 @@
 import React from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable} from 'react-native'
- 
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Home from '../Home'
+import UploadPostContent from '../Component/UploadPostContent'
+import Icon from 'react-native-vector-icons/Ionicons';
 const Footer=()=>{
+  const Tab = createBottomTabNavigator();
      return(
-       <View>
-          <View style={styles.container}>
-               <Text style={{color:'white'}}>Copyright © Pet-Socail</Text>
-          </View>
-       </View>
+      <Tab.Navigator tabBarOptions={{
+         showLabel:false,
+         tabStyle:{
+        backgroundColor:'#F47B13',
+       
+        
+         }
+      }}>
+        <Tab.Screen name=" " component={Home}  options={{
+          tabBarLabel: 'Home',
+          tabBarColor: '#ffffff',
+          tabBarIcon: ({ color }) => (
+            <Icon name="ios-home" color="#fff" size={26} />
+          ),
+        }} />
+        <Tab.Screen name="PostUpload" component={UploadPostContent}  options={{
+          tabBarLabel: 'UploadPost',
+          tabBarColor: '#009387',
+          tabBarIcon: ({ color }) => (
+            <Icon name="" color="#fff" size={26} />
+          ),
+        }}/>
+      </Tab.Navigator>
+   
      );
 }
 export default Footer;
  
 const styles=StyleSheet.create({
   container:{
-    justifyContent:'center',
-    alignItems:'center',
-    // height:50,
-    width:'100%',
-    backgroundColor:'#F47B13',
-    padding:15,
+    // justifyContent:'center',
+    // alignItems:'center',
+    // // height:50,
+    // width:'100%',
+     //backgroundColor:'#F47B13',
+    // padding:15,
   }
 })

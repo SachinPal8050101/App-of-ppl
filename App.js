@@ -16,7 +16,8 @@ const App=()=>{
   const [token,setToken]=useState(false)
   return(
     <NavigationContainer screenOptions={{title:''}}>
-      {token? (
+      <Footer/>
+      {/* {token? (
     <Drawer.Navigator drawerContent={props=><DrawerContent {...props} setToken={setToken}/>}>
       <Drawer.Screen
       options={{
@@ -55,16 +56,11 @@ const App=()=>{
            <Stack.Screen name="LogIn">
            {props => <LogIn {...props} setToken={setToken} />}
            </Stack.Screen>
-            {/* <Stack.Screen name="LogIn" token={token} component={LogIn}/> */}
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="Forgot" component={Forgot}/>
         </Stack.Navigator>
       )
-     }
-     
-     <View style={styles.footerComponent}>
-    <Footer/>
-    </View>
+     } */}
   </NavigationContainer>
   );
 }
@@ -72,6 +68,7 @@ export default App;
 
 const styles=StyleSheet.create({
   footerComponent:{
+    // flex:1
     //display:'fixed'
     //position: 'absolute', left: 0, right: 0, bottom: 0
   }
