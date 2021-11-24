@@ -3,8 +3,19 @@ import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pres
  import UploadPost from './Component/UploadPost'
 import UploadPostContent from './Component/UploadPostContent';
 import Post from '../Screens/Component/Post'
+import axios from 'axios'
 const Home=()=>{
   const [upload,setUpload]=useState(false)
+  const [posts,setPosts]=useState([])
+  axios
+  .post('http://192.168.100.243:5000/getPost',{
+    
+  }).then(res=>{
+    setPosts(res.data) 
+}).catch((err)=>{
+  console.log(err)
+  alert(err)
+})
    return (
     <View style={styles.container}>
         <View style={styles.uploadPost}>
@@ -16,10 +27,12 @@ const Home=()=>{
 
          <View style={styles.post}>
            <ScrollView>
-         <Post setUpload={setUpload} upload={Post}/>
-         <Post setUpload={setUpload} upload={Post}/>
-         <Post setUpload={setUpload} upload={Post}/>
-         <Post setUpload={setUpload} upload={Post}/>
+         {posts.map((item) => {
+          // console.log('----------------------',item)
+            return (
+              <Post setUpload={setUpload} upload={Post} item={item}/>
+            )
+         })}
          </ScrollView>
          </View>
      </View>

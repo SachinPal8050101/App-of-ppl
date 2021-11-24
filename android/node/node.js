@@ -272,7 +272,7 @@ fs.readFile(sampleFile.path, function(err, data){
 app.post('/getPost',async (req,res)=>{
   Posts.find({},(err,data)=>{
       res.send(data)
-  }).skip(req.body.skip).limit(2).sort({$natural:-1})
+  }).sort({$natural:-1})
 })
 
 // get filter data 

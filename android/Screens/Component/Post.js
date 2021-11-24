@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
+import axios from 'axios'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable} from 'react-native'
-const Post=()=>{
+const Post=({item})=>{
+   // console.log('pooooo',item.image)
    return (
       //  main container 
     <View style={styles.mainContainer}>
@@ -24,7 +26,8 @@ const Post=()=>{
                   </View>
                      {/* imageContainer */}
                   <View style={styles.imageContainer}>
-                       <Image style={{height:200,width:'100%'}} source={require('../../../images/lft_img1.png')}/>
+                     console.log('/home/parteek/my-project/android/{item.image}'')
+                       {/* <Image style={{height:200,width:'100%'}} source={require(`/home/parteek/my-project/android/${item.image}`)} /> */}
                   </View>
                   {/* footerContainer */}
                   <View style={styles.footerContainer}>
