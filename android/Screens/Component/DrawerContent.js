@@ -26,7 +26,7 @@ const DrawerContent =(props)=>{
                    <TouchableOpacity  onPress={()=>{props.navigation.navigate('LogIn')}}><Text style={styles.Screen}>Log In </Text></TouchableOpacity>
                    <TouchableOpacity  onPress={()=>{props.navigation.navigate('Forgot')}}><Text style={styles.Screen}>Forgot Password</Text></TouchableOpacity>
 
-                   <TouchableOpacity ><Text style={styles.signOut}>Sign Out</Text></TouchableOpacity>
+                   <TouchableOpacity onPress={()=>props.setToken(false)}><Text style={styles.signOut}>Sign Out</Text></TouchableOpacity>
 
                    {/* <DrawerItem
                        icon={({color, size}) => (

@@ -12,12 +12,12 @@ import DrawerContent from './android/Screens/Component/DrawerContent'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
-const App=()=>{
-  const [token,setToken]=useState(true)
+const App=()=>{  
+  const [token,setToken]=useState(false)
   return(
     <NavigationContainer screenOptions={{title:''}}>
       {token? (
-    <Drawer.Navigator drawerContent={props=><DrawerContent {...props}/>}>
+    <Drawer.Navigator drawerContent={props=><DrawerContent {...props} setToken={setToken}/>}>
       <Drawer.Screen
       options={{
         title:'',
@@ -52,7 +52,10 @@ const App=()=>{
       }} name="Register" component={Register} />
     </Drawer.Navigator>)
     : (<Stack.Navigator>
-            <Stack.Screen name="LogIn" component={LogIn}/>
+           <Stack.Screen name="LogIn">
+           {props => <LogIn {...props} setToken={setToken} />}
+           </Stack.Screen>
+            {/* <Stack.Screen name="LogIn" token={token} component={LogIn}/> */}
             <Stack.Screen name="Register" component={Register}/>
             <Stack.Screen name="Forgot" component={Forgot}/>
         </Stack.Navigator>

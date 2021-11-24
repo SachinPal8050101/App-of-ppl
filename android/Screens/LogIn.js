@@ -1,9 +1,38 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable, KeyboardAvoidingView} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
-const LogIn=({navigation})=>{
- 
+import axios from 'axios';
+const LogIn=({navigation,setToken})=>{
+  const [logIn,setLogIn]=useState({
+    email:'',
+    password:''
+  })
+  const handle1=(e)=>{
+       setLogIn({...logIn,
+         email:e
+       })
+  }
+  const handle2=(e)=>{
+    setLogIn({...logIn,
+      password:e
+    })
+   }
+  const submitLogIn=()=>{
+    const {email,password}=logIn
+    console.log(logIn)
+    axios
+      .post('http://192.168.100.243:5000/login',{
+        ...logIn,
+      }).then(res=>{
+      alert('Welcome !')
+       setToken(true)
+      
+    }).catch((err)=>{
+      console.log(err)
+      alert(err)
+    })
+  }
    return (
      <ScrollView>
      <KeyboardAvoidingView>
@@ -19,21 +48,21 @@ const LogIn=({navigation})=>{
       <Text style={styles.title}>Log In</Text>
        <View>
          <Text>Email</Text>
-         <TextInput placeholder="Enter Your Email"/>
+         <TextInput value={logIn.email} onChangeText={(e)=>{handle1(e)}} placeholder="Enter Your Email"/>
        </View>
        <View>
          <Text>Password</Text>
-         <TextInput placeholder="Enter Your Password"/>
+         <TextInput value={logIn.password} onChangeText={(e)=>{handle2(e)}} placeholder="Enter Your Password"/>
        </View>
        <View>
            {/* <CheckBox
              value={isSelected}
-             onValueChange={setSelection}
+             onValueChange={setSelection}orm
              style={styles.checkbox}
              /> */}
          <Text>Remember me</Text>
              <View style={styles.logInButtonContainer}>
-               <Button color="#F47B13" title="Log In "/>
+               <Button color="#F47B13" onPress={()=>{submitLogIn()}} title="Log In "/>
                <Pressable onPress={()=>{navigation.navigate('Forgot')}}>
                <Text style={styles.forgot}>Forgot Password</Text>
                </Pressable>
