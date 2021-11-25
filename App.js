@@ -1,14 +1,14 @@
 import React,{useState} from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput, ScrollView,Pressable,KeyboardAvoidingView} from 'react-native'
-import LogIn from './android/Screens/LogIn'
+import LogIn from './src/Screens/LogIn'
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import Footer from './android/Screens/Component/Footer'
-import Register from './android/Screens/Register'
-import Reset from './android/Screens/Reset'
-import Forgot from './android/Screens/Forgot'
-import Home from './android/Screens/Home'
-import DrawerContent from './android/Screens/Component/DrawerContent'
+import Footer from './src/Screens/Component/Footer'
+import Register from './src/Screens/Register'
+import Reset from './src/Screens/Reset'
+import Forgot from './src/Screens/Forgot'
+import Home from './src/Screens/Home'
+import DrawerContent from './src/Screens/Component/DrawerContent'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();

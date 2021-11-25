@@ -26,8 +26,8 @@ const Post=({item})=>{
                   </View>
                      {/* imageContainer */}
                   <View style={styles.imageContainer}>
-                     console.log('/home/parteek/my-project/android/{item.image}'')
-                       {/* <Image style={{height:200,width:'100%'}} source={require(`/home/parteek/my-project/android/${item.image}`)} /> */}
+                     {/* {console.log(item.image)} */}
+                       {/* <Image style={{height:200,width:'100%'}} source={require(item.image)} /> */}
                   </View>
                   {/* footerContainer */}
                   <View style={styles.footerContainer}>
