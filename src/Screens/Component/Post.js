@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable} from 'react-native'
 const Post=({item})=>{
-   // console.log('pooooo',item.image)
+   //  console.log('pooooo',item.image)
    return (
       //  main container 
     <View style={styles.mainContainer}>
@@ -10,24 +10,25 @@ const Post=({item})=>{
          <View style={styles.innerContainer}>
                    {/* TitleContainer */}
                   <View style={styles.titleContainer}>
-                          <Text  style={{color:'#F47B13',fontSize:21,fontWeight:'bold'}}>User Interface</Text>
+   <Text  style={{color:'#F47B13',fontSize:21,fontWeight:'bold'}}>{item.title}</Text>
                           <View style={{flexDirection:'row',marginLeft:'auto'}}>
                                <Image style={{height:30}} source={require('../../../images/side_arc.png')}/>
                                <View style={{backgroundColor:'#FF5E33',height:30,width:45,justifyContent:'center',alignItems:'center'}}>
-                                <Text style={{color:'#fff'}}>Dog</Text>
+   <Text style={{color:'#fff',fontWeight:'bold'}}>{item.category}</Text>
                                </View>
                           </View>
                   </View>
                   {/* userDeatailsContainer */}
                   <View style={styles.userDetailesContainer}>
                            <Image source={require('../../../images/pic_small.png')}/>
-                           <Text style={{color:'#F4713B',marginLeft:20,fontWeight:'bold'}}>Sachin Pal</Text>
-                           <Text style={{color:'#F4713B',marginLeft:'auto'}}>11:55 Am </Text>
+   <Text style={{color:'#F4713B',marginLeft:20,fontWeight:'bold'}}>{item.fullName}</Text>
+   <Text style={{color:'#F4713B',marginLeft:'auto'}}>{item.time}</Text>
                   </View>
                      {/* imageContainer */}
                   <View style={styles.imageContainer}>
-                     {/* {console.log(item.image)} */}
-                       {/* <Image style={{height:200,width:'100%'}} source={require(item.image)} /> */}
+                     {/* {console.log(item.image)}      /home/parteek/my-project-server/src/post_images/bird.jpg */}
+                     {/* source={require('../../../../../parteek/my-project-server/src/post_images/bird.jpg')} */}
+                       <Image style={{height:200,width:'100%'}}  />
                   </View>
                   {/* footerContainer */}
                   <View style={styles.footerContainer}>

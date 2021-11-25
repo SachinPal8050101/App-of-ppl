@@ -27,7 +27,7 @@ const Footer=()=>{
           tabBarLabel: 'UploadPost',
           tabBarColor: '#009387',
           tabBarIcon: ({ color }) => (
-            <Icon name="" color="#fff" size={26} />
+            <Icon name="ios-home" color="#fff" size={26} />
           ),
         }}/>
       </Tab.Navigator>

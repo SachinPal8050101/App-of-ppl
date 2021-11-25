@@ -18,12 +18,12 @@ const Home=()=>{
 })
    return (
     <View style={styles.container}>
-        <View style={styles.uploadPost}>
+        {/* <View style={styles.uploadPost}>
          <UploadPost setUpload={setUpload} upload={upload}/>
          </View>
          {upload?(<View style={styles.UploadPostContent}>
          <UploadPostContent/>
-         </View>): null}
+         </View>): null} */}
 
          <View style={styles.post}>
            <ScrollView>
