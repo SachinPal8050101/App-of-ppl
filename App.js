@@ -14,11 +14,11 @@ const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 const App=()=>{  
   const [token,setToken]=useState(false)
+  const [user,setUser]=useState()
   return(
     <NavigationContainer screenOptions={{title:''}}>
-      <Footer/>
-      {/* {token? (
-    <Drawer.Navigator drawerContent={props=><DrawerContent {...props} setToken={setToken}/>}>
+      {token? (
+    <Drawer.Navigator drawerContent={props=><DrawerContent {...props} setToken={setToken} user={user}/>}>
       <Drawer.Screen
       options={{
         title:'',
@@ -51,17 +51,32 @@ const App=()=>{
         },
         headerTintColor: '#fff',
       }} name="Register" component={Register} />
+       <Drawer.Screen
+      options={{
+        title:'',
+        headerStyle: {
+          backgroundColor: '#F47B13',
+        },
+        headerTintColor: '#fff',
+      }} name="Footer" component={Footer} />
+      
     </Drawer.Navigator>)
     : (<Stack.Navigator>
-           <Stack.Screen name="LogIn">
-           {props => <LogIn {...props} setToken={setToken} />}
+           <Stack.Screen name=" ">
+           {props => <LogIn {...props} setToken={setToken} setUser={setUser} />}
            </Stack.Screen>
-            <Stack.Screen name="Register" component={Register}/>
+           <Stack.Screen name=" ">
+           {props => <Register {...props} setToken={setToken} setUser={setUser} />}
+           </Stack.Screen>
+            {/* <Stack.Screen name="Register" component={Register}/> */}
             <Stack.Screen name="Forgot" component={Forgot}/>
         </Stack.Navigator>
+        
       )
-     } */}
+     }
+    
   </NavigationContainer>
+  
   );
 }
 export default App;

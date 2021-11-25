@@ -1,20 +1,22 @@
 import React from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable} from 'react-native'
- 
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+
 const UploadPostContent=()=>{
    return (
     <View style={styles.container}>
             
         <View>
-          <Text>Title</Text>
+          <Text style={{color:'#fff',fontSize:30}}>Title</Text>
           <TextInput type='text' style={{backgroundColor:'#fff'}}/>
         </View>
         <View>
-          <Text>Category</Text>
+          <Text style={{color:'#fff',fontSize:30}}>Category</Text>
           <TextInput style={{backgroundColor:'#fff'}}/>
         </View>
         <View>
-          <Text>Image</Text>
+          <Text style={{color:'#fff',fontSize:30}}>Image</Text>
+          
           <TextInput style={{backgroundColor:'#fff'}}/>
         </View>
         <View>

@@ -23,7 +23,7 @@ const Footer=()=>{
             <Icon name="ios-home" color="#fff" size={26} />
           ),
         }} />
-        <Tab.Screen name="PostUpload" component={UploadPostContent}  options={{
+        <Tab.Screen name=" ." component={UploadPostContent}  options={{
           tabBarLabel: 'UploadPost',
           tabBarColor: '#009387',
           tabBarIcon: ({ color }) => (

@@ -3,7 +3,7 @@ import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pres
 import { NavigationContainer } from '@react-navigation/native';
 import { ScrollView } from 'react-native-gesture-handler';
 import axios from 'axios';
-const LogIn=({navigation,setToken})=>{
+const LogIn=({navigation,setToken,setUser})=>{
   const [logIn,setLogIn]=useState({
     email:'',
     password:''
@@ -27,6 +27,7 @@ const LogIn=({navigation,setToken})=>{
       }).then(res=>{
       alert('Welcome !')
        setToken(true)
+       setUser(res.data)
       
     }).catch((err)=>{
       console.log(err)
