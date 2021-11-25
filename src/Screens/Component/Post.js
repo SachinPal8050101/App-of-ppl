@@ -27,8 +27,8 @@ const Post=({item})=>{
                      {/* imageContainer */}
                   <View style={styles.imageContainer}>
                      {/* {console.log(item.image)}      /home/parteek/my-project-server/src/post_images/bird.jpg */}
-                     {/* source={require('../../../../../parteek/my-project-server/src/post_images/bird.jpg')} */}
-                       <Image style={{height:200,width:'100%'}}  />
+                    
+                       <Image style={{height:200,width:'100%'}}  source={require('../../../images/flag.png')}  />
                   </View>
                   {/* footerContainer */}
                   <View style={styles.footerContainer}>
