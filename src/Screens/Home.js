@@ -1,8 +1,8 @@
 import React,{useState} from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable,ScrollView} from 'react-native'
- import UploadPost from './Component/UploadPost'
-import UploadPostContent from './Component/UploadPostContent';
-import Post from '../Screens/Component/Post'
+ import UploadPost from '../Component/UploadPost'
+import UploadPostContent from '../Component/UploadPostContent'
+import Post from '../Component/Post'
 import axios from 'axios'
 const Home=()=>{
   const [upload,setUpload]=useState(false)

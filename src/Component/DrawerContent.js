@@ -9,18 +9,18 @@ const DrawerContent =(props)=>{
     props.navigation.navigate('Footer')
 }, []);
 
-    console.log(props.user.user.username)
+      console.log('kkkk',props.user.username)
         return(
           <View style={styles.container}>
                <View style={styles.profileContainer}>
                    <View style={styles.profilePic} >
                        {/* Image */}
-                       <Image source={require('../../../images/post_img.png')}/>
+                       <Image source={require('../../images/post_img.png')}/>
                    </View>
                    <View style={styles.profileDetail}>
                        {/* name username */}
-        <Text style={{fontSize:18}}>{props.user.user.lastname + " "+props.user.user.lastname}</Text>
-        <Text>{props.user.user.username}</Text>
+        <Text style={{fontSize:18}}>{props.user.lastname+' '+props.user.lastname}</Text>
+        <Text>{props.user.username}</Text>
                    </View>
                </View>
                {/* others Detaiils */}

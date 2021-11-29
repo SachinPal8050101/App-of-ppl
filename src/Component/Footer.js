@@ -2,7 +2,7 @@ import React from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from '../Home'
+import Home from '../Screens/Home'
 import UploadPostContent from '../Component/UploadPostContent'
 import Icon from 'react-native-vector-icons/Ionicons';
 const Footer=()=>{
@@ -12,8 +12,6 @@ const Footer=()=>{
          showLabel:false,
          tabStyle:{
         backgroundColor:'#F47B13',
-       
-        
          }
       }}>
         <Tab.Screen name=" " component={Home}  options={{

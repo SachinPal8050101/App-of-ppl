@@ -3,7 +3,7 @@ import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pres
 import { ScrollView } from 'react-native-gesture-handler'
 import  axios from 'axios'
  
-const Register=({navigation,setUser})=>{
+const Register=({navigation,setUser,setToken})=>{
   const [registerDetails,setRegisterDetails]=useState({
     username:'',
     password:'',
@@ -49,8 +49,9 @@ const handle=()=>{
         ...registerDetails,
       }).then(res=>{
       alert('Welcome !')
-       console.log(res.data.user)
-       setUser(res.data)
+       setToken(true)
+       console.log('ssssssss',res.data.user)
+      setUser(res.data.user)
       
     }).catch((err)=>{
       console.log(err)

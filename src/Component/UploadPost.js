@@ -10,11 +10,11 @@ const UploadPost=(props)=>{
                  {/* container1 */}
                  <View style={StyleSheet.container1}>
                    
-                         <Image size='100' source={require('../../../images/btn_icona.png')}/>
+                         <Image size='100' source={require('../../images/btn_icona.png')}/>
                  </View>
                  {/* contaner2 */}
                  <View style={StyleSheet.container2}>
-                 <Image size='1' source={require('../../../images/btn_sep.png')}/>
+                 <Image size='1' source={require('../../images/btn_sep.png')}/>
                  </View>
                  {/* container 3 */}
                  <View  style={StyleSheet.container3}>
