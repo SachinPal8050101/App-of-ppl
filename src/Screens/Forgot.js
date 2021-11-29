@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable} from 'react-native'
  
-const Forgot=()=>{
+const Forgot=(props)=>{
+
+  const [forgotEmail,setForgotEmail]=useState();
+    const handle=(e)=>{
+      setForgotEmail(e)
+    }
+    const submit=()=>{
+
+    }
    return (
     <View>
     {/* welcome container */}
@@ -15,7 +23,7 @@ const Forgot=()=>{
       <Text style={styles.title}>Log In</Text>
        <View>
          <Text>Email</Text>
-         <TextInput placeholder="Enter Your Email"/>
+         <TextInput placeholder="Enter Your Email" value={forgotEmail} onChangeText={(e)=>handle(e)}/>
        </View>
        <View>
           

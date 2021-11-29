@@ -9,7 +9,7 @@ const DrawerContent =(props)=>{
     props.navigation.navigate('Footer')
 }, []);
 
-    // console.log(props.user.user.username)
+    console.log(props.user.user.username)
         return(
           <View style={styles.container}>
                <View style={styles.profileContainer}>
@@ -19,8 +19,8 @@ const DrawerContent =(props)=>{
                    </View>
                    <View style={styles.profileDetail}>
                        {/* name username */}
-        <Text style={{fontSize:18}}></Text>
-        <Text></Text>
+        <Text style={{fontSize:18}}>{props.user.user.lastname + " "+props.user.user.lastname}</Text>
+        <Text>{props.user.user.username}</Text>
                    </View>
                </View>
                {/* others Detaiils */}

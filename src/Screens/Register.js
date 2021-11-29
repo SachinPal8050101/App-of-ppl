@@ -3,7 +3,7 @@ import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pres
 import { ScrollView } from 'react-native-gesture-handler'
 import  axios from 'axios'
  
-const Register=({navigation,setUser,setToken})=>{
+const Register=({navigation,setUser})=>{
   const [registerDetails,setRegisterDetails]=useState({
     username:'',
     password:'',
@@ -44,13 +44,12 @@ const handle5=(e)=>{
 
 const handle=()=>{
   const {username,password,email,firstname,lastname}=registerDetails
-    // console.log(logIn)
     axios
-      .post('http://192.168.100.243:5000/register',{
+      .post('http://192.168.100.113:5000/register',{
         ...registerDetails,
       }).then(res=>{
       alert('Welcome !')
-       setToken(true)
+       console.log(res.data.user)
        setUser(res.data)
       
     }).catch((err)=>{

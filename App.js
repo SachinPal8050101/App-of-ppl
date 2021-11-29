@@ -21,55 +21,60 @@ const App=()=>{
     <Drawer.Navigator drawerContent={props=><DrawerContent {...props} setToken={setToken} user={user}/>}>
       <Drawer.Screen
       options={{
-        title:'',
+        title:'Home',
         headerStyle: {
           backgroundColor: '#F47B13',
+          headerShown:false
         },
         headerTintColor: '#fff',
       }} name="Home" component={Home} />
       <Drawer.Screen
       options={{
-        title:'',
+        title:'LogIn',
         headerStyle: {
           backgroundColor: '#F47B13',
+          headerShown:false
         },
         headerTintColor: '#fff',
       }} name="LogIn" component={LogIn} />
       <Drawer.Screen
       options={{
-        title:'',
+        title:'Forgot',
         headerStyle: {
           backgroundColor: '#F47B13',
+          headerShown:false
         },
         headerTintColor: '#fff',
       }} name="Forgot" component={Forgot} />
       <Drawer.Screen
       options={{
-        title:'',
+        title:'Register',
         headerStyle: {
           backgroundColor: '#F47B13',
+          headerShown:false
         },
         headerTintColor: '#fff',
       }} name="Register" component={Register} />
        <Drawer.Screen
       options={{
-        title:'',
+        title:'Footer',
         headerStyle: {
           backgroundColor: '#F47B13',
+          headerShown:false
         },
         headerTintColor: '#fff',
       }} name="Footer" component={Footer} />
       
     </Drawer.Navigator>)
     : (<Stack.Navigator>
-           <Stack.Screen name=" ">
+           <Stack.Screen name="LogIn" options={{headerShown:false}}>
            {props => <LogIn {...props} setToken={setToken} setUser={setUser} />}
            </Stack.Screen>
-           <Stack.Screen name=" ">
-           {props => <Register {...props} setToken={setToken} setUser={setUser} />}
+           <Stack.Screen name="Register" options={{headerShown:false}}>
+           {props => <Register {...props}  setUser={setUser} />}
            </Stack.Screen>
             {/* <Stack.Screen name="Register" component={Register}/> */}
-            <Stack.Screen name="Forgot" component={Forgot}/>
+            <Stack.Screen name="Forgot" component={Forgot} options={{headerShown:false}}/>
         </Stack.Navigator>
         
       )

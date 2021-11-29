@@ -8,7 +8,7 @@ const Home=()=>{
   const [upload,setUpload]=useState(false)
   const [posts,setPosts]=useState([])
   axios
-  .post('http://192.168.100.243:5000/getPost',{
+  .post('http://192.168.100.113:5000/getPost',{
     
   }).then(res=>{
     setPosts(res.data) 

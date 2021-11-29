@@ -20,9 +20,9 @@ const LogIn=({navigation,setToken,setUser})=>{
    }
   const submitLogIn=()=>{
     const {email,password}=logIn
-    console.log(logIn)
+    
     axios
-      .post('http://192.168.100.243:5000/login',{
+      .post('http://192.168.100.113:5000/login',{
         ...logIn,
       }).then(res=>{
       alert('Welcome !')
@@ -30,7 +30,7 @@ const LogIn=({navigation,setToken,setUser})=>{
        setUser(res.data)
       
     }).catch((err)=>{
-      console.log(err)
+      console.log('.......',err)
       alert(err)
     })
   }
