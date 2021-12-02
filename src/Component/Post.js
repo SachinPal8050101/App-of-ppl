@@ -12,10 +12,9 @@ import {
   Pressable,
 } from "react-native";
 
-import config from '../../src/config'
+import config from "../../src/config";
 
 const Post = ({ item }) => {
-  //  console.log('pooooo',item.image)
   return (
     //  main container
     <View style={styles.mainContainer}>
@@ -63,7 +62,7 @@ const Post = ({ item }) => {
           {/* {console.log(item.image)} */}
           <Image
             style={{ height: 200, width: "100%" }}
-            source={{uri:`${config.SERVER_URL}/${item.image}`}}
+            source={{ uri: `${config.SERVER_URL}/${item.image}` }}
           />
         </View>
         {/* footerContainer */}

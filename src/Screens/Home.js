@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   View,
@@ -10,7 +10,8 @@ import {
   TextInput,
   Pressable,
   ScrollView,
-  FlatList
+  FlatList,
+  ActivityIndicator,
 } from "react-native";
 import UploadPost from "../Component/UploadPost";
 import UploadPostContent from "../Component/UploadPostContent";
@@ -20,59 +21,45 @@ import axios from "axios";
 import config from "../../src/config";
 
 const Home = () => {
-  
   const [upload, setUpload] = useState(false);
   const [posts, setPosts] = useState([]);
-   const [skip,setSkip]=useState(0)
-  // var skip=0
-  // axios
-  //   .post(`${config.SERVER_URL}/getPost`, {})
-  //   .then((res) => {
-  //     setPosts(res.data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(err);
-  //     alert(err);
-  //   });
-  const getPostDataFunction=(skip)=>{
-  axios({
-    url: `${config.SERVER_URL}/getPost`,
-    method: 'post',
-     data:  { skip: skip },
-  })
-  .then((res) => {
-    //  console.log('kkkkkkk-',res)
-     setPosts(res.data)
-  })
- }
- useEffect(()=>{
-  getPostDataFunction(skip)
- })
+  const [skip, setSkip] = useState(0);
+
+  const getPostDataFunction = (skip) => {
+    axios({
+      url: `${config.SERVER_URL}/getPost`,
+      method: "post",
+      data: { skip: skip },
+    }).then((res) => {
+      setPosts(res.data);
+    });
+  };
+  useEffect(() => {
+    getPostDataFunction(skip);
+  });
 
   return (
     <View style={styles.container}>
       <View style={styles.post}>
-        {/* <ScrollView> */}
-          {/* {posts.map((item) => {
-            return <Post setUpload={setUpload} upload={Post} item={item} />;
-          })} */}
+        {posts.length !== 0 ? (
           <FlatList
-        data={posts}
-        renderItem={({item,index,separators})=><Post  item={item}/>}
-        keyExtractor={item => item._id}
-        onEndReached={({distanceFromEnd})=>{
-          console.log('-----------',distanceFromEnd) 
-          if(distanceFromEnd<100)
-          {
-            console.log('ggggggg')
-            getPostDataFunction(skip)
-          }
-          setSkip(skip+2)
-          // skip=skip+5
-        }}
-        onEndReachedThreshold={0.5}
-      />
-        {/* </ScrollView> */}
+            data={posts}
+            renderItem={({ item, index, separators }) => <Post item={item} />}
+            keyExtractor={(item) => item._id}
+            onEndReached={({ distanceFromEnd }) => {
+              console.log("-----------", distanceFromEnd);
+              if (distanceFromEnd < 100) {
+                console.log("ggggggg");
+                setPosts([]);
+                getPostDataFunction(skip);
+              }
+              setSkip(skip + 2);
+            }}
+            onEndReachedThreshold={0.5}
+          />
+        ) : (
+          <ActivityIndicator size="large" color="#0000ff" />
+        )}
       </View>
     </View>
   );
@@ -86,9 +73,6 @@ const styles = StyleSheet.create({
   },
   uploadPost: {},
   post: {
-    // marginVertical:10,
     marginTop: 40,
-
-    // backgroundColor:'yellow'
   },
 });

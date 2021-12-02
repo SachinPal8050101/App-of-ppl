@@ -5,51 +5,44 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { Icon } from "react-native-elements";
 import AsyncStorage from "@react-native-community/async-storage";
+
 const DrawerContent = (props) => {
- const [val,setVal]=useState({
-   username:'',
-   firstname:'',
-   lastname:''
- })
-  const remove=async ()=>{
-     try{
-          await AsyncStorage.removeItem('TOKEN')
-          await AsyncStorage.removeItem('TASKS')
-     }
-     catch(err){
-       console.log('fff')
-         alert(err)
-     }
-     finally{
-          props.setToken(undefined)
-     }
-  }
-  const load=async ()=>{
-    try{
-        let value= await AsyncStorage.getItem('TASKS')
-        value=JSON.parse(value)
-        if(value!==null)
-        {
+  const [val, setVal] = useState({
+    username: "",
+    firstname: "",
+    lastname: "",
+  });
+  const remove = async () => {
+    try {
+      await AsyncStorage.removeItem("TOKEN");
+      await AsyncStorage.removeItem("TASKS");
+    } catch (err) {
+      console.log("fff");
+      alert(err);
+    } finally {
+      props.setToken(undefined);
+    }
+  };
+  const load = async () => {
+    try {
+      let value = await AsyncStorage.getItem("TASKS");
+      value = JSON.parse(value);
+      if (value !== null) {
         setVal({
-          firstname:value.firstname,
-          lastname:value.lastname,
-          username:value.username
-        })
+          firstname: value.firstname,
+          lastname: value.lastname,
+          username: value.username,
+        });
       }
+    } catch (err) {
+      alert(err);
+    } finally {
     }
-    catch(err){
-     
-        alert(err)
-    }
-    finally{
-        //  props.setToken(undefined)
-    }
- }
- load();
- useEffect(()=>{
+  };
   load();
-      // console.log('dddddddd=======',postData)
- },[])
+  useEffect(() => {
+    load();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -96,7 +89,7 @@ const DrawerContent = (props) => {
         >
           <Text style={styles.Screen}>Forgot Password</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>remove()}>
+        <TouchableOpacity onPress={() => remove()}>
           <Text style={styles.signOut}>Sign Out</Text>
         </TouchableOpacity>
       </View>

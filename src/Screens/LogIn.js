@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from "@react-native-community/async-storage";
 import {
   Text,
   View,
@@ -17,8 +17,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { ScrollView } from "react-native-gesture-handler";
 import axios from "axios";
 
-import config from '../../src/config'
-const LogIn = ({ navigation, setToken, setUser,user }) => {
+import config from "../../src/config";
+const LogIn = ({ navigation, setToken, setUser, user }) => {
+  
   const [logIn, setLogIn] = useState({
     email: "",
     password: "",
@@ -35,23 +36,15 @@ const LogIn = ({ navigation, setToken, setUser,user }) => {
       password: e,
     });
   };
- 
-  const save =async (val) => {
+
+  const save = async (val) => {
     try {
-      await AsyncStorage.setItem(
-        'TASKS',
-        JSON.stringify(val)
-      );
-      await AsyncStorage.setItem(
-        'TOKEN',
-        '123'
-      );
-    } catch (error) {
-      // Error saving data
-    }
+      await AsyncStorage.setItem("TASKS", JSON.stringify(val));
+      await AsyncStorage.setItem("TOKEN", "123");
+    } catch (error) {}
   };
-  
-  const submitLogIn = async() => {
+
+  const submitLogIn = async () => {
     const { email, password } = logIn;
 
     axios
@@ -62,14 +55,13 @@ const LogIn = ({ navigation, setToken, setUser,user }) => {
         alert("Welcome !");
         console.log(res.data.user);
         setToken(true);
-         setUser(res.data.user)
+        setUser(res.data.user);
 
-         //Async storage 
-         save(res.data.user)
-       
+        //Async storage
+        save(res.data.user);
       });
   };
-  
+
   return (
     <ScrollView>
       <KeyboardAvoidingView>

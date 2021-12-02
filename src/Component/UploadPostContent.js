@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import * as ImagePicker from "react-native-image-picker";
 
-import config from '../../src/config'
+import config from "../../src/config";
 
 const UploadPostContent = () => {
   const [filePath, setFilePath] = useState({});
@@ -28,28 +28,27 @@ const UploadPostContent = () => {
         setPostData({
           ...postData,
           userId: value._id,
-          fullName:value.firstname+' '+value.lastname
+          fullName: value.firstname + " " + value.lastname,
         });
-      
       }
     } catch (err) {
       alert(err);
     }
   };
-  useEffect(()=>{
-    load()
-  },[])
+  useEffect(() => {
+    load();
+  }, []);
   const [postData, setPostData] = useState({
-    userId:"",
+    userId: "",
     title: "",
     category: selectedValue,
     fullName: "",
   });
-  
-  const handleTitle1=(e) => {
+
+  const handleTitle1 = (e) => {
     setPostData({
       ...postData,
-      title:e,
+      title: e,
     });
   };
   const chooseFile = () => {
@@ -66,7 +65,6 @@ const UploadPostContent = () => {
         path: "images",
       },
       selectionLimit: 1,
-     
     };
     ImagePicker.launchImageLibrary(options, (response) => {
       console.log("Response = ", response.assets[0]);
@@ -80,7 +78,7 @@ const UploadPostContent = () => {
         alert(response.customButton);
       } else {
         setFilePath(response.assets[0]);
-        console.log("..........",response);
+        console.log("..........", response);
       }
     });
   };
@@ -90,23 +88,23 @@ const UploadPostContent = () => {
       name: filePath.fileName,
       type: filePath.type,
       uri: filePath.uri,
-    }
+    };
     let formdata = new FormData();
-    formdata.append('title',postData.title)
-    formdata.append("category",selectedValue);
-    formdata.append("fullName",postData.fullName);
+    formdata.append("title", postData.title);
+    formdata.append("category", selectedValue);
+    formdata.append("fullName", postData.fullName);
     formdata.append("image", image);
-    formdata.append("filename",filePath.fileName)
-    formdata.append("userId",postData.userId)
+    formdata.append("filename", filePath.fileName);
+    formdata.append("userId", postData.userId);
     console.log("fff", formdata);
     axios({
       url: `${config.SERVER_URL}/uploadpostcontent`,
-      method: 'POST',
+      method: "POST",
       data: formdata,
       withCredentials: true,
     })
-            .then(resp => console.log('lllllllllllllll-----------',resp.data))
-            .catch(error => console.error('jjj',error));
+      .then((resp) => console.log("lllllllllllllll-----------", resp.data))
+      .catch((error) => console.error("jjj", error));
   };
 
   return (
@@ -128,7 +126,7 @@ const UploadPostContent = () => {
       </View>
       <View style={styles.cetageory}>
         <Picker
-             selectedValue={selectedValue}
+          selectedValue={selectedValue}
           style={{ height: 50, width: 100 }}
           onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
         >
@@ -158,7 +156,7 @@ export default UploadPostContent;
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-   marginVertical:40,
+    marginVertical: 40,
     width: "100%",
     backgroundColor: "#F47B13",
     borderColor: "yellow",
@@ -178,8 +176,8 @@ const styles = StyleSheet.create({
   selectButtonContainer: {
     margin: 20,
     borderRadius: 5,
-    justifyContent:'center',
-    alignItems:'center'
+    justifyContent: "center",
+    alignItems: "center",
   },
   selectButtonTitle: {
     padding: 10,
@@ -190,7 +188,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 7,
-    padding:30
+    padding: 30,
   },
   submitTitle: {
     color: "#fff",

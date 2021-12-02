@@ -25,7 +25,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 const Draw = ({ user, setToken }) => {
-  console.log(user)
+  console.log(user);
   return (
     <Drawer.Navigator
       drawerContent={(props) => (
@@ -42,7 +42,6 @@ const Draw = ({ user, setToken }) => {
         }}
         name="Footer"
         component={Footer}
-        
       />
       <Drawer.Screen
         options={{
