@@ -45,6 +45,7 @@ const UploadPostContent = () => {
     category: selectedValue,
     fullName: "",
   });
+  
   const handleTitle1=(e) => {
     setPostData({
       ...postData,

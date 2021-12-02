@@ -13,7 +13,7 @@ const AuthNavigator = ({ setToken ,setUser,user}) => (
       {(props) => <LogIn {...props} setToken={setToken} setUser={setUser} user={user}/>}
     </Stack.Screen>
     <Stack.Screen name="Register" options={{ headerShown: false }}>
-      {(props) => <Register {...props} setUser={setUser} setToken={setToken} />}
+      {(props) => <Register {...props} setUser={setUser} setToken={setToken} user={user} />}
     </Stack.Screen>
     <Stack.Screen
       name="Forgot"

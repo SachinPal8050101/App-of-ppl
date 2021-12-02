@@ -47,7 +47,8 @@ const DrawerContent = (props) => {
  }
  load();
  useEffect(()=>{
-      
+  load();
+      // console.log('dddddddd=======',postData)
  },[])
 
   return (
@@ -60,7 +61,7 @@ const DrawerContent = (props) => {
         <View style={styles.profileDetail}>
           {/* name username */}
           <Text style={{ fontSize: 18 }}>
-            {val.lastname + " " + val.lastname}
+            {val.firstname + " " + val.lastname}
           </Text>
           <Text>{val.username}</Text>
         </View>

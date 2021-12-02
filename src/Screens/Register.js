@@ -2,7 +2,8 @@ import React,{useState} from 'react'
 import {Text,View,StyleSheet,Header,Image,TouchableOpacity,Button,TextInput,Pressable} from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import  axios from 'axios'
- 
+import AsyncStorage from '@react-native-community/async-storage'
+import config from '../config'
 const Register=({navigation,setUser,setToken})=>{
   const [registerDetails,setRegisterDetails]=useState({
     username:'',
@@ -41,6 +42,20 @@ const handle5=(e)=>{
     lastname:e
   })
 }
+const save =async (val) => {
+  try {
+    await AsyncStorage.setItem(
+      'TASKS',
+      JSON.stringify(val)
+    );
+    await AsyncStorage.setItem(
+      'TOKEN',
+      '123'
+    );
+  } catch (error) {
+    console.log('================',error)
+  }
+};
 
 const handle=()=>{
   const {username,password,email,firstname,lastname}=registerDetails
@@ -48,14 +63,14 @@ const handle=()=>{
       .post(`${config.SERVER_URL}/register`,{
         ...registerDetails,
       }).then(res=>{
-      alert('Welcome !')
-       setToken(true)
-       console.log('ssssssss',res.data.user)
-      setUser(res.data.user)
+        alert("Welcome !");
+        console.log(res.data.user);
+        setToken(true);
+         setUser(res.data.user)
+
+         //Async storage 
+         save(res.data.user)
       
-    }).catch((err)=>{
-      console.log(err)
-      alert(err)
     })
 }
    return (

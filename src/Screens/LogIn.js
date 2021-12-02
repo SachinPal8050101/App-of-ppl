@@ -50,19 +50,7 @@ const LogIn = ({ navigation, setToken, setUser,user }) => {
       // Error saving data
     }
   };
-
   
-  const load= async () => {
-    try {
-      const value = await AsyncStorage.getItem('TASKS');
-      if (value !== null) {
-        console.log('_>_>_>_>_>--',value);
-      }
-    } catch (error) {
-      // Error retrieving data
-    }
-  };
-
   const submitLogIn = async() => {
     const { email, password } = logIn;
 
@@ -81,10 +69,7 @@ const LogIn = ({ navigation, setToken, setUser,user }) => {
        
       });
   };
- useEffect(()=>{
-   load()
- },[])
-
+  
   return (
     <ScrollView>
       <KeyboardAvoidingView>
