@@ -5,7 +5,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../Screens/Home'
 import UploadPostContent from '../Component/UploadPostContent'
 import Icon from 'react-native-vector-icons/Ionicons';
-const Footer=()=>{
+const Footer=(props)=>{
+  console.log(props)
   const Tab = createBottomTabNavigator();
      return(
       <Tab.Navigator tabBarOptions={{
@@ -17,6 +18,7 @@ const Footer=()=>{
         <Tab.Screen name=" " component={Home}  options={{
           tabBarLabel: 'Home',
           tabBarColor: '#ffffff',
+          headerShown:false,
           tabBarIcon: ({ color }) => (
             <Icon name="ios-home" color="#fff" size={26} />
           ),
@@ -24,6 +26,7 @@ const Footer=()=>{
         <Tab.Screen name=" ." component={UploadPostContent}  options={{
           tabBarLabel: 'UploadPost',
           tabBarColor: '#009387',
+          headerShown:false,
           tabBarIcon: ({ color }) => (
             <Icon name="ios-home" color="#fff" size={26} />
           ),

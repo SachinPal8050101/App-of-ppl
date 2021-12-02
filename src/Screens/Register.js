@@ -45,7 +45,7 @@ const handle5=(e)=>{
 const handle=()=>{
   const {username,password,email,firstname,lastname}=registerDetails
     axios
-      .post('http://192.168.100.113:5000/register',{
+      .post(`${config.SERVER_URL}/register`,{
         ...registerDetails,
       }).then(res=>{
       alert('Welcome !')
