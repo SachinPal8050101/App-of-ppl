@@ -15,6 +15,7 @@ import {
 import config from "../../src/config";
 
 const Post = ({ item }) => {
+  // console.log('ssssssss-----',item)
   return (
     //  main container
     <View style={styles.mainContainer}>

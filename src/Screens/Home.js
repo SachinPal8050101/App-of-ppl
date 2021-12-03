@@ -24,6 +24,7 @@ const Home = () => {
   const [upload, setUpload] = useState(false);
   const [posts, setPosts] = useState([]);
   const [skip, setSkip] = useState(0);
+  const [skip1, setSkip1] = useState(true);
 
   const getPostDataFunction = (skip) => {
     axios({
@@ -31,35 +32,38 @@ const Home = () => {
       method: "post",
       data: { skip: skip },
     }).then((res) => {
-      setPosts(res.data);
+       setPosts([...posts,...res.data]);
+       if(skip1===true){
+         setSkip1(false)
+       }
+       else{
+         setSkip1(true)
+       }
     });
   };
   useEffect(() => {
     getPostDataFunction(skip);
   });
-
+console.log(posts[0])
   return (
     <View style={styles.container}>
       <View style={styles.post}>
-        {posts.length !== 0 ? (
+         
+       
           <FlatList
             data={posts}
             renderItem={({ item, index, separators }) => <Post item={item} />}
-            keyExtractor={(item) => item._id}
             onEndReached={({ distanceFromEnd }) => {
               console.log("-----------", distanceFromEnd);
-              if (distanceFromEnd < 100) {
-                console.log("ggggggg");
-                setPosts([]);
+              if (distanceFromEnd < 1) {
                 getPostDataFunction(skip);
               }
               setSkip(skip + 2);
             }}
             onEndReachedThreshold={0.5}
           />
-        ) : (
-          <ActivityIndicator size="large" color="#0000ff" />
-        )}
+          {skip1?<ActivityIndicator size="large" color="#00ff00" />:null}
+         
       </View>
     </View>
   );
