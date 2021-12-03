@@ -41,7 +41,9 @@ const LogIn = ({ navigation, setToken, setUser, user }) => {
     try {
       await AsyncStorage.setItem("TASKS", JSON.stringify(val));
       await AsyncStorage.setItem("TOKEN", "123");
-    } catch (error) {}
+    } catch (error) {
+      console.log('gggggggggggggggg',error)
+    }
   };
 
   const submitLogIn = async () => {

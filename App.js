@@ -29,9 +29,9 @@ const App = () => {
       // Error retrieving data
     }
   };
-  useLayoutEffect(() => {
+  useEffect(() => {
     load();
-  });
+  },[token]);
 
   console.log(
     ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",

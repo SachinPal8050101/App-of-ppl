@@ -70,14 +70,14 @@ const DrawerContent = (props) => {
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate("Register");
+            props.navigation.navigate("Register"),remove();
           }}
         >
           <Text style={styles.Screen}>Creact Account</Text>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate("LogIn");
+            props.navigation.navigate("LogIn"),remove();
           }}
         >
           <Text style={styles.Screen}>Log In </Text>
