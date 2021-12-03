@@ -32,7 +32,10 @@ const Home = () => {
       method: "post",
       data: { skip: skip },
     }).then((res) => {
-       setPosts([...posts,...res.data]);
+      console.log('resssssssss>>', res.data)
+      if(res.data.length) {
+        setPosts([...posts,...res.data]);
+      }
        if(skip1===true){
          setSkip1(false)
        }
@@ -43,7 +46,7 @@ const Home = () => {
   };
   useEffect(() => {
     getPostDataFunction(skip);
-  });
+  }, [skip]);
 console.log(posts[0])
   return (
     <View style={styles.container}>
@@ -55,14 +58,11 @@ console.log(posts[0])
             renderItem={({ item, index, separators }) => <Post item={item} />}
             onEndReached={({ distanceFromEnd }) => {
               console.log("-----------", distanceFromEnd);
-              if (distanceFromEnd < 1) {
-                getPostDataFunction(skip);
-              }
-              setSkip(skip + 2);
+              setSkip(skip + 3);
             }}
-            onEndReachedThreshold={0.5}
+            keyExtractor={(item) => item._id}
           />
-          {skip1?<ActivityIndicator size="large" color="#00ff00" />:null}
+          {skip1?<ActivityIndicator style={{paddingBottom:500}} size="large" color="#00ff00" />:null}
          
       </View>
     </View>
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
   },
   uploadPost: {},
   post: {
-    marginTop: 40,
+    marginTop: 20,
+    marginBottom: 30
   },
 });
