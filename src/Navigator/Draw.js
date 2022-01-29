@@ -22,16 +22,20 @@ import Forgot from "../Screens/Forgot";
 import Home from "../Screens/Home";
 import DrawerContent from "../Component/DrawerContent";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 const Draw = ({ user, setToken }) => {
   console.log(user);
   return (
     <Drawer.Navigator
-      drawerContent={(props) => (
+      drawerContent={(props) =>(
+      
         <DrawerContent {...props} user={user} setToken={setToken} />
       )}
     >
+      
       <Drawer.Screen
         options={{
           title: "Footer",

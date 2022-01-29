@@ -15,6 +15,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../Screens/Home";
 import UploadPostContent from "../Component/UploadPostContent";
 import Icon from "react-native-vector-icons/Ionicons";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Footer = (props) => {
   const Tab = createBottomTabNavigator();
@@ -47,7 +48,7 @@ const Footer = (props) => {
           tabBarColor: "#009387",
           headerShown: false,
           tabBarIcon: ({ color }) => (
-            <Icon name="ios-home" color="#fff" size={26} />
+            <FontAwesome5 name={'comments'} size={27} color="#fff" solid/>
           ),
         }}
       />

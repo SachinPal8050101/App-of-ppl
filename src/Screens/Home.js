@@ -17,6 +17,7 @@ import UploadPost from "../Component/UploadPost";
 import UploadPostContent from "../Component/UploadPostContent";
 import Post from "../Component/Post";
 import axios from "axios";
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import config from "../../src/config";
 
@@ -51,8 +52,6 @@ console.log(posts[0])
   return (
     <View style={styles.container}>
       <View style={styles.post}>
-         
-       
           <FlatList
             data={posts}
             renderItem={({ item, index, separators }) => <Post item={item} />}

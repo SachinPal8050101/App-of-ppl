@@ -10,12 +10,33 @@ import {
   Button,
   TextInput,
   Pressable,
+  Share
 } from "react-native";
 
 import config from "../../src/config";
 
 const Post = ({ item }) => {
   // console.log('ssssssss-----',item)
+
+    const onShare = async () => {
+      try {
+        const result = await Share.share({
+          message:
+            'https://www.my123.com/v1/23',
+        });
+        if (result.action === Share.sharedAction) {
+          if (result.activityType) {
+            // shared with activity type of result.activityType
+          } else {
+            // shared
+          }
+        } else if (result.action === Share.dismissedAction) {
+          // dismissed
+        }
+      } catch (error) {
+        alert(error.message);
+      }
+  }
   return (
     //  main container
     <View style={styles.mainContainer}>
@@ -69,17 +90,21 @@ const Post = ({ item }) => {
         {/* footerContainer */}
         <View style={styles.footerContainer}>
           {/* shareContainer */}
+          <Pressable onPress={onShare}>
           <View style={styles.shareContainer}>
             <Image source={require("../../images/icon_001.png")} />
           </View>
+          </Pressable>
           {/* FlageContainer */}
           <View style={styles.flagContainer}>
             <Image source={require("../../images/btm_img2.png")} />
           </View>
           {/* likeContainer */}
+         
           <View style={styles.likeContainer}>
             <Image source={require("../../images/icon_003.png")} />
           </View>
+         
         </View>
       </View>
     </View>

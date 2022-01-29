@@ -90,13 +90,15 @@ const UploadPostContent = () => {
       uri: filePath.uri,
     };
     let formdata = new FormData();
+    console.log('sdfghj',image);
     formdata.append("title", postData.title);
     formdata.append("category", selectedValue);
     formdata.append("fullName", postData.fullName);
+    console.log('image---->>>',image);
     formdata.append("image", image);
     formdata.append("filename", filePath.fileName);
     formdata.append("userId", postData.userId);
-    console.log("fff", formdata);
+    console.log("fff----------======", formdata);
     axios({
       url: `${config.SERVER_URL}/uploadpostcontent`,
       method: "POST",

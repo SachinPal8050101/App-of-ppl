@@ -1,0 +1,10 @@
+{
+  "id": "sq",
+  "version": "",
+  "vendor": "My Company",
+  "type": "web",
+  "main": "index.html",
+  "title": "aa",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png"
+}

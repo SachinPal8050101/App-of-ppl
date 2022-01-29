@@ -13,10 +13,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Draw from "./src/Navigator/Draw";
 import AuthNavigator from "./src/Navigator/AuthNavigator";
 import AsyncStorage from "@react-native-community/async-storage";
+// import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
-
 const App = () => {
   
   const [token, setToken] = useState();
@@ -39,7 +39,7 @@ const App = () => {
   );
 
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       {token !== undefined ? (
         <Draw user={user} setToken={setToken} />
       ) : (
