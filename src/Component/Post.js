@@ -39,7 +39,9 @@ const Post = ({ item }) => {
   }
   return (
     //  main container
+    
     <View style={styles.mainContainer}>
+      <Pressable onPress={()=>alert("open a single post")}>
       {/* inner innerContainer */}
       <View style={styles.innerContainer}>
         {/* TitleContainer */}
@@ -107,6 +109,7 @@ const Post = ({ item }) => {
          
         </View>
       </View>
+      </Pressable>
     </View>
   );
 };
